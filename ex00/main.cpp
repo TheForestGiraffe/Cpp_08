@@ -6,29 +6,32 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 14:07:10 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/09/08 14:58:54 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/09/08 16:31:07 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.tpp"
 #include <vector>
 #include <list>
+#include <deque>
 #include <iostream>
 
 int main() {
 
   std::cout << "Vector container:\n";
 
-  std::vector<int> integers;
-  integers.push_back(5);
-  integers.push_back(9);
-  integers.push_back(10);
+  std::vector<int> int_vector;
+  int_vector.push_back(5);
+  int_vector.push_back(9);
+  int_vector.push_back(10);
 
-  std::vector<int>::iterator vector_iterator = easyfind(integers, 9);
-  std::cout << *vector_iterator << std::endl;
+  std::cout << "Looking for 9...\n";
+  std::vector<int>::iterator vector_iterator = easyfind(int_vector, 9);
+  std::cout << "Found: " << *vector_iterator << std::endl;
 
   try {
-    vector_iterator = easyfind(integers, 11);
+    std::cout << "Looking for 11...\n";
+    vector_iterator = easyfind(int_vector, 11);
     std::cout << *vector_iterator << std::endl;
   } 
   catch (const std::exception& e) {
@@ -37,40 +40,43 @@ int main() {
 
   std::cout << "\nList container:\n";
 
-  std::list<double> doubles;
-  doubles.push_back(5);
-  doubles.push_front(10);
-  doubles.push_back(2345.12);
+  std::list<int> int_list;
+  int_list.push_back(5);
+  int_list.push_front(10);
+  int_list.push_back(2345);
 
-  std::list<double>::iterator list_iterator = easyfind(doubles, 10);
-  std::cout << *list_iterator << std::endl;
+  std::cout << "Looking for 10...\n";
+  std::list<int>::iterator list_iterator = easyfind(int_list, 10);
+  std::cout << "Found: " << *list_iterator << std::endl;
 
   try {
-    list_iterator = easyfind(doubles, 23);
-    std::cout << *list_iterator << std::endl;
+    std::cout << "Looking for 23...\n";
+    list_iterator = easyfind(int_list, 23);
+    std::cout << "Found: " << *list_iterator << std::endl;
   }
   catch (const std::exception& e) {
     std::cout << e.what() << std::endl;
   }
 
   std::cout << "\nDeque container:\n";
-//TODO
-  std::list<double> doubles;
-  doubles.push_back(5);
-  doubles.push_front(10);
-  doubles.push_back(2345.12);
 
-  std::list<double>::iterator list_iterator = easyfind(doubles, 10);
-  std::cout << *list_iterator << std::endl;
+  std::deque<int> int_deque;
+  int_deque.push_back(5);
+  int_deque.push_front(10);
+  int_deque.push_back(2345);
+
+  std::cout << "Looking for 10...\n";
+  std::deque<int>::iterator deque_iterator = easyfind(int_deque, 10);
+  std::cout << "Found: " << *deque_iterator << std::endl;
 
   try {
-    list_iterator = easyfind(doubles, 23);
-    std::cout << *list_iterator << std::endl;
+    std::cout << "Looking for 23...\n";
+    deque_iterator = easyfind(int_deque, 23);
+    std::cout << "Found: " << *deque_iterator << std::endl;
   }
   catch (const std::exception& e) {
     std::cout << e.what() << std::endl;
   }
 
   return 0;
-
 }

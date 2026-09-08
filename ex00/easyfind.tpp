@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 13:44:06 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/09/07 14:37:36 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/09/08 16:31:44 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typename T::iterator easyfind(T& container, int value) {
 
   iterator = find(container.begin(), container.end(), value);
   if (iterator == container.end()) {
-    throw std::runtime_error("Value not found.");
+    throw std::runtime_error("Value not found");
   }
   return iterator;
 
