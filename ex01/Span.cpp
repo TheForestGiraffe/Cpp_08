@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 10:15:16 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/09/10 12:29:09 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/09/10 14:44:08 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,19 @@ unsigned int Span::shortestSpan() const {
     throw std::runtime_error("Span > shortestSpan: at least 2 numbers needed.");
   }
 
-  std::sort(integers.begin(), integers.end());
+  std::vector<int> integers_copy(integers);
+  std::sort(integers_copy.begin(), integers_copy.end());
 
-  std::vector<int>::const_iterator it = integers.begin();
+  std::vector<int>::const_iterator it = integers_copy.begin();
   double span = static_cast<double>(*(it + 1)) - static_cast<double>(*(it));
   double current_span;
   it++;
-  while ((it + 1) != integers.end()) {
+  while ((it + 1) != integers_copy.end()) {
     current_span = static_cast<double>(*(it + 1)) - static_cast<double>(*(it));
-    if (current_span > span) {
+    if (current_span < span) {
       span = current_span;
     }
+    it++;
   }
 
   return static_cast<unsigned int>(span);
