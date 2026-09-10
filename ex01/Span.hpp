@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/09 20:10:32 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/09/10 11:08:21 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/09/10 11:35:55 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Span {
     ~Span();
 
     void addNumber(int number);
-    int shortestSpan();
-    int longestSpan();
+    int shortestSpan() const;
+    unsigned int longestSpan() const;
 
   private:
     Span();

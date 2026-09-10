@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 10:56:20 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/09/10 11:04:50 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/09/10 11:35:46 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ int main() {
   sp.addNumber(17);
   sp.addNumber(9);
   sp.addNumber(11);
-  sp.addNumber(12);
   
   //std::cout << sp.shortestSpan() << std::endl;
-  //std::cout << sp.longestSpan() << std::endl;
+  std::cout << sp.longestSpan() << std::endl;
   
   return 0;
 }
