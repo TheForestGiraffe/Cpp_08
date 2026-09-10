@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/09 20:10:32 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/09/09 21:01:02 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/09/10 11:08:21 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Span {
 
   private:
     Span();
-    unsigned int N_;
+    std::size_t max_size;
     std::vector<int> integers;
 };
 
