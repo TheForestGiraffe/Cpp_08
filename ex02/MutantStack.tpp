@@ -6,7 +6,7 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/14 11:13:40 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/09/14 11:45:36 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/09/14 11:52:07 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,14 @@ MutantStack<T>& MutantStack<T>::operator=(const MutantStack& Other) {
 }
 
 template <typename T>
-MutantStack<T>::~MutantStack() {};
+MutantStack<T>::~MutantStack() {}
+
+template <typename T>
+typename MutantStack<T>::iterator MutantStack<T>::begin() {
+  return std::stack::c.begin();
+}
+
+template <typename T>
+typename MutantStack<T>::iterator MutantStack<T>::end() {
+  return std::stack::c.end();
+}
