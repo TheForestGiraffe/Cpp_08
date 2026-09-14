@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MutantStack.hpp                                    :+:      :+:    :+:   */
+/*   MutantStack.tpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/10 16:55:08 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/09/14 11:13:29 by pecavalc         ###   ########.fr       */
+/*   Created: 2026/09/14 11:13:40 by pecavalc          #+#    #+#             */
+/*   Updated: 2026/09/14 11:45:36 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MUTANTSTACK_HPP
-# define MUTANTSTACK_HPP
-
-# include <stack>
+template <typename T>
+MutantStack<T>::MutantStack() : std::stack<T>() {}
 
 template <typename T>
-class MutantStack : public std:stack<T> {
-  public:
-    typedef typename std::stack<T>::container_type::iterator iterator;
+MutantStack<T>::MutantStack(const MutantStack& Other) : std::stack<T>(Other) {}
 
-    MutantStack();
-    MutantStack(const MutantStack& Other);
-    MutantStack& operator=(const MutantStack Other);
-    ~MutantStack();
+template <typename T>
+MutantStack<T>& MutantStack<T>::operator=(const MutantStack& Other) {
+  if (this != &Other) {
+    this->std::stack<T>::operator=(Other);
+  }
+  return *this;
+}
 
-    iterator begin();
-    iterator end();
-};
-
-#include "MutantStack.tpp"
-
-#endif
+template <typename T>
+MutantStack<T>::~MutantStack() {};
