@@ -6,33 +6,33 @@
 /*   By: pecavalc <pecavalc@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/14 11:13:40 by pecavalc          #+#    #+#             */
-/*   Updated: 2026/09/14 11:52:07 by pecavalc         ###   ########.fr       */
+/*   Updated: 2026/09/14 15:19:32 by pecavalc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-template <typename T>
-MutantStack<T>::MutantStack() : std::stack<T>() {}
+template <typename T, typename Container>
+MutantStack<T, Container>::MutantStack() : std::stack<T, Container>() {}
 
-template <typename T>
-MutantStack<T>::MutantStack(const MutantStack& Other) : std::stack<T>(Other) {}
+template <typename T, typename Container>
+MutantStack<T, Container>::MutantStack(const MutantStack& Other) : std::stack<T, Container>(Other) {}
 
-template <typename T>
-MutantStack<T>& MutantStack<T>::operator=(const MutantStack& Other) {
+template <typename T, typename Container>
+MutantStack<T, Container>& MutantStack<T, Container>::operator=(const MutantStack& Other) {
   if (this != &Other) {
-    this->std::stack<T>::operator=(Other);
+    this->std::stack<T, Container>::operator=(Other);
   }
   return *this;
 }
 
-template <typename T>
-MutantStack<T>::~MutantStack() {}
+template <typename T, typename Container>
+MutantStack<T, Container>::~MutantStack() {}
 
-template <typename T>
-typename MutantStack<T>::iterator MutantStack<T>::begin() {
-  return std::stack::c.begin();
+template <typename T, typename Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::begin() {
+  return this->std::stack<T, Container>::c.begin();
 }
 
-template <typename T>
-typename MutantStack<T>::iterator MutantStack<T>::end() {
-  return std::stack::c.end();
+template <typename T, typename Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::end() {
+  return this->std::stack<T, Container>::c.end();
 }
